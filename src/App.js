@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { NavLink, Outlet, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Link to="/">D&D Logger</Link>
+      <nav>
+        <ul>
+          <li>
+            {' '}
+            <NavLink
+              to="/loglist"
+              className={({ isActive }) => (isActive ? 'red' : undefined)}
+            >
+              View Logs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/newlog"
+              className={({ isActive }) => (isActive ? 'red' : undefined)}
+            >
+              New Log
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Outlet />
     </div>
   );
 }
