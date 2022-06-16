@@ -1,8 +1,7 @@
 import { Link, Outlet, useSearchParams } from 'react-router-dom';
-import { getLogs } from '../data';
 
-function LogList() {
-	let logs = getLogs();
+function LogList(props) {
+	let logs = props.logs;
 	let [searchParams, setSearchParams] = useSearchParams();
 	return (
 		<main>
@@ -21,18 +20,20 @@ function LogList() {
 						}
 					}}
 				/>
+				{/* TODO */}
 				{/* <label for="timePeriod">Time period: </label> <!--Create a dropdown/range slider for dates--> */}
 
 				{logs
-					.filter((log) => {
-						let filter = searchParams.get('filter');
-						if (!filter) return true;
-						let name = log.name.toLowerCase();
-						return name.startsWith(filter.toLowerCase());
-					})
+					// TODO
+					// .filter((log) => {
+					// 	let filter = searchParams.get('filter');
+					// 	if (!filter) return true;
+					// 	let name = log.name.toLowerCase();
+					// 	return name.startsWith(filter.toLowerCase());
+					// })
 					.map((log) => (
-						<Link to={`/${log.logId}`} key={log.logId}>
-							{log.name}
+						<Link to={`/${log.sessionId}`} key={log.sessionId}>
+							{log.sessionName}
 						</Link>
 					))}
 			</div>

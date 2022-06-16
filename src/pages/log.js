@@ -1,19 +1,20 @@
 import { useParams, Link } from 'react-router-dom';
-import { getLog } from '../data';
 
-export default function Log() {
-  let params = useParams();
-  let log = getLog(parseInt(params.logId, 10));
-  return (
-    <main>
-      <Link to="/loglist">Return to list</Link>
-      <h2>
-        {log.name} ({log.date})
-      </h2>
-      <h3>Start Location: {log.startloc}</h3>
-      <h3>End Location: {log.endloc}</h3>
-      <p>{log.notes}</p>
-      <div>{}</div>
-    </main>
-  );
+export default function Log(props) {
+	let params = useParams();
+	let logId = parseInt(params.logId, 10);
+	let currentLog = props.logs[logId - 1];
+
+	return (
+		<main>
+			<Link to="/loglist">Return to list</Link>
+			<h2>
+				{currentLog.sessionName} ({currentLog.sessionDate})
+			</h2>
+			<h3>Start Location: {currentLog.startLoc}</h3>
+			<h3>End Location: {currentLog.endLoc}</h3>
+			<p>{currentLog.sessionNotes}</p>
+			<div>{}</div>
+		</main>
+	);
 }
