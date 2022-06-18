@@ -1,14 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
 	return (
 		<nav>
 			<ul>
 				<li>
-					{' '}
+					{" "}
 					<NavLink
 						to="/loglist"
-						className={({ isActive }) => (isActive ? 'red' : undefined)}
+						className={({ isActive }) =>
+							isActive ? "red" : undefined
+						}
 					>
 						View Logs
 					</NavLink>
@@ -16,7 +18,9 @@ export default function NavBar() {
 				<li>
 					<NavLink
 						to="/newlog"
-						className={({ isActive }) => (isActive ? 'red' : undefined)}
+						className={({ isActive }) =>
+							isActive ? "red" : undefined
+						}
 					>
 						New Log
 					</NavLink>
