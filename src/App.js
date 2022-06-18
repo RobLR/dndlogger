@@ -1,55 +1,51 @@
 import './App.css';
-import { NavLink, Outlet, Link } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LogList from './pages/loglist';
 import NewLog from './pages/newlog';
 import Log from './pages/log';
 import Homepage from './pages/home';
+import LoginModal from './components/login';
+import { users, userList, emailList } from './data';
+import Header from './components/header';
+import Settings from './pages/settings';
+import UserAuthentication from './pages/userAuth';
 
 function App() {
-	const [currentId, setCurrentId] = useState(1);
+	const [userAuthed, setUserAuthed] = useState(false);
+	const [currentUser, setCurrentUser] = useState();
 	const [logs, setLogs] = useState([]);
+	const [currentId, setCurrentId] = useState(1);
 
-	useEffect(() => {
-		const data = window.localStorage.getItem('logs');
-		if (data) {
-			setLogs(JSON.parse(data));
-		}
-	}, []);
+	const location = useLocation();
+	const background = location.state && location.state.background;
 
-	useEffect(() => {
-		window.localStorage.setItem('logs', JSON.stringify(logs));
-		console.log(logs);
-	}, [logs]);
+	// useEffect(() => {
+	// 	const data = JSON.parse(window.localStorage.getItem('logs'));
+	// 	if (data) {
+	// 		setLogs(data);
+	// 	}
+	// }, []);
+
+	// useEffect(() => {
+	// 	window.localStorage.setItem('logs', JSON.stringify(logs));
+	// 	console.log(logs);
+	// }, [logs]);
 
 	return (
 		<div>
-			<Link to="/">D&D Logger</Link>
-			<nav>
-				<ul>
-					<li>
-						{' '}
-						<NavLink
-							to="/loglist"
-							className={({ isActive }) => (isActive ? 'red' : undefined)}
-						>
-							View Logs
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/newlog"
-							className={({ isActive }) => (isActive ? 'red' : undefined)}
-						>
-							New Log
-						</NavLink>
-					</li>
-				</ul>
-			</nav>
+			<Header userAuthed={userAuthed} />
 			<Routes>
 				<Route index element={<Homepage />} />
-				<Route path="loglist" element={<LogList logs={logs} />} />
+				<Route
+					path="login"
+					element={<UserAuthentication setUserAuthed={setUserAuthed} />}
+				/>
+				<Route
+					path="loglist"
+					element={<LogList logs={logs} userAuthed={userAuthed} />}
+				/>
 				<Route path=":logId" element={<Log logs={logs} />} />
 				<Route
 					path="newlog"
@@ -59,10 +55,11 @@ function App() {
 							setCurrentId={setCurrentId}
 							logs={logs}
 							setLogs={setLogs}
-							// save={saveToStorage}
+							userAuthed={userAuthed}
 						/>
 					}
 				/>
+				<Route path="/settings" element={<Settings />} />
 				<Route
 					path="*"
 					element={
