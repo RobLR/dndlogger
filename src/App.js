@@ -36,7 +36,7 @@ function App() {
 	return (
 		<div>
 			<Header userAuthed={userAuthed} />
-			<Routes>
+			<Routes location={background || location}>
 				<Route index element={<Homepage />} />
 				<Route
 					path="login"
@@ -69,6 +69,14 @@ function App() {
 					}
 				/>
 			</Routes>
+			{/* {background && (
+				<Routes>
+					<Route
+						path="login"
+						element={<UserAuthentication userAuthed={userAuthed} />}
+					/>
+				</Routes>
+			)} */}
 			<Outlet />
 		</div>
 	);
