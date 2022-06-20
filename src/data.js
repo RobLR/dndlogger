@@ -10,11 +10,10 @@ export const users = [
 		username: 'Dave',
 		password: 'password',
 		theme: 'light',
-		campaigns: ['c1', 'c2', 'c3'],
+		currentId: '4',
 		logs: [
 			{
 				sessionId: 1,
-				campaignName: 'c1',
 				sessionName: 'Session 1 - Dave',
 				sessionDate: '2022-06-16',
 				startLoc: 'Town',
@@ -23,7 +22,6 @@ export const users = [
 			},
 			{
 				sessionId: 2,
-				campaignName: 'c1',
 				sessionName: 'Session 2 - Dave',
 				sessionDate: '2022-06-23',
 				startLoc: 'Cave',
@@ -32,7 +30,6 @@ export const users = [
 			},
 			{
 				sessionId: 3,
-				campaignName: 'c1',
 				sessionName: 'Session 3 - Dave',
 				sessionDate: '2022-06-30',
 				startLoc: 'Dungeon',
@@ -46,11 +43,10 @@ export const users = [
 		username: 'Sarah',
 		password: 'password',
 		theme: 'light',
-		campaigns: ['c1', 'c2', 'c3'],
+		currentId: '4',
 		logs: [
 			{
 				sessionId: 1,
-				campaignName: 'c1',
 				sessionName: 'Session 1 - Sarah',
 				sessionDate: '2022-06-16',
 				startLoc: 'Town',
@@ -59,7 +55,6 @@ export const users = [
 			},
 			{
 				sessionId: 2,
-				campaignName: 'c1',
 				sessionName: 'Session 2 - Sarah',
 				sessionDate: '2022-06-23',
 				startLoc: 'Cave',
@@ -68,7 +63,6 @@ export const users = [
 			},
 			{
 				sessionId: 3,
-				campaignName: 'c1',
 				sessionName: 'Session 3 - Sarah',
 				sessionDate: '2022-06-30',
 				startLoc: 'Dungeon',
@@ -82,11 +76,10 @@ export const users = [
 		username: 'Joes',
 		password: 'password',
 		theme: 'dark',
-		campaigns: ['c1', 'c2', 'c3'],
+		currentId: '4',
 		logs: [
 			{
 				sessionId: 1,
-				campaignName: 'c1',
 				sessionName: 'Session 1 - Joe',
 				sessionDate: '2022-06-16',
 				startLoc: 'Town',
@@ -95,7 +88,6 @@ export const users = [
 			},
 			{
 				sessionId: 2,
-				campaignName: 'c1',
 				sessionName: 'Session 2 - Joe',
 				sessionDate: '2022-06-23',
 				startLoc: 'Cave',
@@ -104,7 +96,6 @@ export const users = [
 			},
 			{
 				sessionId: 3,
-				campaignName: 'c1',
 				sessionName: 'Session 3 - Joe',
 				sessionDate: '2022-06-30',
 				startLoc: 'Dungeon',

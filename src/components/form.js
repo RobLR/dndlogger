@@ -29,11 +29,6 @@ export default function NewLogForm(props) {
 		}
 	};
 
-	// useEffect(() => {
-	// 	console.log(props.logs);
-	// 	props.save();
-	// }, [submittedInput]);
-
 	return (
 		<form action="" onSubmit={handleSubmit}>
 			{saved && !valid && (

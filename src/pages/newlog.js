@@ -12,6 +12,7 @@ function NewLog(props) {
 					setCurrentId={props.setCurrentId}
 					logs={props.logs}
 					setLogs={props.setLogs}
+					currentUser={props.currentUser}
 				/>
 			</main>
 		);
