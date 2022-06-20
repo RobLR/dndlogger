@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 export default function Log(props) {
 	let params = useParams();
 	let logId = parseInt(params.logId, 10);
-	let currentLog = props.logs[logId - 1];
+	let currentLog = props.currentUserData.logs[logId - 1];
 
 	return (
 		<main>

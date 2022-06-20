@@ -17,18 +17,22 @@ export default function Settings(props) {
 					</label>
 					<label>
 						Username{' '}
-						<input disabled type="text" value={props.currentUser.username} />
+						<input
+							disabled
+							type="text"
+							value={props.currentUserData.username}
+						/>
 					</label>
 					<label>
 						Email{' '}
-						<input disabled type="email" value={props.currentUser.email} />
+						<input disabled type="email" value={props.currentUserData.email} />
 					</label>
 					<label>
 						Password{' '}
 						<input
 							disabled
 							type="password"
-							value={props.currentUser.password}
+							value={props.currentUserData.password}
 						/>
 					</label>
 				</form>

@@ -1,7 +1,7 @@
 import { Link, Outlet, useSearchParams, Navigate } from 'react-router-dom';
 
 function LogList(props) {
-	let logs = props.logs;
+	let logs = props.currentUserData.logs;
 	let [searchParams, setSearchParams] = useSearchParams();
 
 	if (props.userAuthed === true) {

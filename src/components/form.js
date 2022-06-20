@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NewLogForm(props) {
 	const navigate = useNavigate();
-	const [input, setInput] = useState({ sessionId: props.currentId });
+	const [input, setInput] = useState({
+		sessionId: props.currentUserData.currentId,
+	});
 	const [valid, setValid] = useState(false);
 	const [saved, setSaved] = useState(false);
+	let dummyUserData = { ...props.currentUserData };
 
 	const handleInputChange = (e) =>
 		setInput({
@@ -21,10 +24,11 @@ export default function NewLogForm(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSaved(true);
-		setValid(checkValidation());
+		setValid(checkValidation()); //Need to change, currently making you have to click save twice because it takes time for state to update.
 		if (valid) {
-			props.setCurrentId(props.currentId + 1);
-			props.setLogs([...props.logs, input]);
+			dummyUserData.logs.push(input);
+			dummyUserData.currentId += 1;
+			props.setCurrentUserData(dummyUserData);
 			navigate(`/${input.sessionId}`);
 		}
 	};

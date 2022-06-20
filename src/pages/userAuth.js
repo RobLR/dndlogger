@@ -23,13 +23,17 @@ export default function UserAuthentication(props) {
 				{loginOrSignup === 'login' && (
 					<Login
 						setUserAuthed={props.setUserAuthed}
-						setCurrentUser={props.setCurrentUser}
-						setLogs={props.setLogs}
-						currentUser={props.currentUser}
-						setCurrentId={props.setCurrentId}
+						setCurrentUserData={props.setCurrentUserData}
+						setCurrentUserId={props.setCurrentUserId}
 					/>
 				)}
-				{loginOrSignup === 'signup' && <Signup />}
+				{loginOrSignup === 'signup' && (
+					<Signup
+						setUserAuthed={props.setUserAuthed}
+						setCurrentUserData={props.setCurrentUserData}
+						setCurrentUserId={props.setCurrentUserId}
+					/>
+				)}
 			</div>
 		</div>
 	);

@@ -17,11 +17,11 @@ export default function Login(props) {
 		e.preventDefault();
 		if (emailList.includes(input.email)) {
 			let user = users.find((user) => user.email === input.email);
+			let userIndex = users.indexOf(user);
 			if (user.password === input.password) {
-				props.setCurrentUser(user);
+				props.setCurrentUserData(user);
 				props.setUserAuthed(true);
-				props.setLogs(user.logs);
-				props.setCurrentId(parseInt(user.currentId));
+				props.setCurrentUserId(userIndex);
 				navigate('/');
 			} else {
 				setErrorMessage('Incorrect password');

@@ -10,7 +10,7 @@ export const users = [
 		username: 'Dave',
 		password: 'password',
 		theme: 'light',
-		currentId: '4',
+		currentId: 4,
 		logs: [
 			{
 				sessionId: 1,
@@ -43,7 +43,7 @@ export const users = [
 		username: 'Sarah',
 		password: 'password',
 		theme: 'light',
-		currentId: '4',
+		currentId: 4,
 		logs: [
 			{
 				sessionId: 1,
@@ -76,7 +76,7 @@ export const users = [
 		username: 'Joes',
 		password: 'password',
 		theme: 'dark',
-		currentId: '4',
+		currentId: 4,
 		logs: [
 			{
 				sessionId: 1,

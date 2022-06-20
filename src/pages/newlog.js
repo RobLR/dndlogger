@@ -8,11 +8,8 @@ function NewLog(props) {
 				<h2>Create a New Log</h2>
 				<p>Enter the session details below</p>
 				<NewLogForm
-					currentId={props.currentId}
-					setCurrentId={props.setCurrentId}
-					logs={props.logs}
-					setLogs={props.setLogs}
-					currentUser={props.currentUser}
+					currentUserData={props.currentUserData}
+					setCurrentUserData={props.setCurrentUserData}
 				/>
 			</main>
 		);
