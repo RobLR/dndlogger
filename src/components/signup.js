@@ -24,6 +24,9 @@ export default function Signup(props) {
 						logs: [],
 					};
 					users.push(newUser);
+					emailList.push(newUser.email);
+					usernameList.push(newUser.username);
+					props.saveToLocalStorage();
 				} else {
 					setErrorMessage('Passwords do not match');
 				}

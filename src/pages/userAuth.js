@@ -32,6 +32,7 @@ export default function UserAuthentication(props) {
 						setUserAuthed={props.setUserAuthed}
 						setCurrentUserData={props.setCurrentUserData}
 						setCurrentUserId={props.setCurrentUserId}
+						saveToLocalStorage={props.saveToLocalStorage}
 					/>
 				)}
 			</div>

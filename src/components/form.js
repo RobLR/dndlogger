@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { users } from '../data';
 
 export default function NewLogForm(props) {
 	const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function NewLogForm(props) {
 			dummyUserData.logs.push(input);
 			dummyUserData.currentId += 1;
 			props.setCurrentUserData(dummyUserData);
+			props.updateUserData();
 			navigate(`/${input.sessionId}`);
 		}
 	};

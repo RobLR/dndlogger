@@ -20,12 +20,19 @@ function App() {
 	const [currentUserData, setCurrentUserData] = useState();
 	const [currentUserId, setCurrentUserId] = useState(); //Keeps record of the users Id, which is the index in the array
 
-	// const saveToLocalStorage = () => {
-	// 	localStorage.setItem('USER_AUTH', JSON.stringify(userAuthed));
-	// 	localStorage.setItem('USER_DATA', JSON.stringify(currentUserData));
-	// 	localStorage.setItem('USER_ID', JSON.stringify(currentUserId));
-	// 	localStorage.setItem('USERS', JSON.stringify(users));
-	// };
+	const saveToLocalStorage = () => {
+		localStorage.setItem('USERS', JSON.stringify(users));
+		localStorage.setItem('EMAILLIST', JSON.stringify(emailList));
+		localStorage.setItem('USERNAMELIST', JSON.stringify(usernameList));
+		// 	localStorage.setItem('USER_AUTH', JSON.stringify(userAuthed));
+		// 	localStorage.setItem('USER_DATA', JSON.stringify(currentUserData));
+		// 	localStorage.setItem('USER_ID', JSON.stringify(currentUserId));
+		// 	localStorage.setItem('USERS', JSON.stringify(users));
+	};
+
+	const updateUserData = () => {
+		users.splice(currentUserId, 1, currentUserData);
+	};
 
 	return (
 		<div>
@@ -44,6 +51,7 @@ function App() {
 							setUserAuthed={setUserAuthed}
 							setCurrentUserData={setCurrentUserData}
 							setCurrentUserId={setCurrentUserId}
+							saveToLocalStorage={saveToLocalStorage}
 						/>
 					}
 				/>
@@ -67,6 +75,7 @@ function App() {
 							userAuthed={userAuthed}
 							currentUserData={currentUserData}
 							setCurrentUserData={setCurrentUserData}
+							updateUserData={updateUserData}
 						/>
 					}
 				/>

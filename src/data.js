@@ -1,4 +1,4 @@
-export const userList = ['Dave', 'Sarah', 'Joe'];
+export const usernameList = ['Dave', 'Sarah', 'Joe'];
 export const emailList = [
 	'dave@example.com',
 	'sarah@example.com',

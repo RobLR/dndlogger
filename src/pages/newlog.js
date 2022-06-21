@@ -10,6 +10,7 @@ function NewLog(props) {
 				<NewLogForm
 					currentUserData={props.currentUserData}
 					setCurrentUserData={props.setCurrentUserData}
+					updateUserData={props.updateUserData}
 				/>
 			</main>
 		);
