@@ -75,8 +75,6 @@ select {
 	}
 }
 
-/* Colours */
-
 /* Typography */
 
 :root {
@@ -132,29 +130,51 @@ body {
 .header {
 	display: flex;
 	flex-direction: column;
+	background-color: black;
+	color: red;
+	padding-top: 1em;
+}
+
+.title {
+	font-size: var(--step-3);
+	font-weight: var(--font-weight-4);
+	color: red;
+	text-decoration: none;
+	margin-left: 0.25em;
+}
+
+.link {
+	color: red;
+	text-decoration: none;
+	transition: 0.5s;
+	padding: 0.5em;
 }
 
 .navButtons {
 	display: flex;
 	justify-content: space-between;
-	padding-left: 1em;
-	padding-right: 1em;
+	flex-direction: row-reverse;
 }
 
 .navLink {
 	display: flex;
 	list-style: none;
-	gap: 1em;
+	order: 2;
 }
 
 .userControls {
 	display: flex;
 	align-items: center;
+	order: 1;
 }
 
 .userControlsButtons {
 	display: flex;
-	gap: 1em;
+}
+
+.link:hover {
+	cursor: pointer;
+	background-color: rgba(128, 128, 128, 0.573);
 }
 
 /* Mobile Navigation */

@@ -12,20 +12,30 @@ export default function Header(props) {
 
 	return (
 		<header className="header">
-			<Link to="/">D&D Logger</Link>
+			<Link className="title" to="/">
+				D&D Logger
+			</Link>
 			<div className="navButtons">
 				{props.userAuthed === true && <NavBar userAuthed={props.userAuthed} />}
 				<div className="userControls">
 					{props.userAuthed ? (
 						<div className="userControlsButtons">
-							<span>{props.currentUserData.username}</span>
-							<span onClick={handleLogOut}>Log Out</span>{' '}
-							<span onClick={props.saveToStorage}>Save</span>
+							<span className="link">{props.currentUserData.username}</span>
+							<span className="link" onClick={handleLogOut}>
+								Log Out
+							</span>{' '}
+							<span className="link" onClick={props.saveToStorage}>
+								Save
+							</span>
 						</div>
 					) : (
 						<div className="userControlsButtons">
-							<Link to="login">Log In/Sign Up</Link>
-							<span onClick={props.saveToStorage}>Save</span>
+							<Link className="link" to="login">
+								Log In/Sign Up
+							</Link>
+							<span className="link" onClick={props.saveToStorage}>
+								Save
+							</span>
 						</div>
 					)}
 					{/* <span onClick={props.saveToStorage}>Save</span> */}
