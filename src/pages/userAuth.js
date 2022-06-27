@@ -25,6 +25,9 @@ export default function UserAuthentication(props) {
 						setUserAuthed={props.setUserAuthed}
 						setCurrentUserData={props.setCurrentUserData}
 						setCurrentUserId={props.setCurrentUserId}
+						users={props.users}
+						emailList={props.emailList}
+						saveToStorage={props.saveToStorage}
 					/>
 				)}
 				{loginOrSignup === 'signup' && (
@@ -32,7 +35,13 @@ export default function UserAuthentication(props) {
 						setUserAuthed={props.setUserAuthed}
 						setCurrentUserData={props.setCurrentUserData}
 						setCurrentUserId={props.setCurrentUserId}
-						saveToLocalStorage={props.saveToLocalStorage}
+						setUsers={props.setUsers}
+						setUsernameList={props.setUsernameList}
+						setEmailList={props.setEmailList}
+						users={props.users}
+						usernameList={props.usernameList}
+						emailList={props.emailList}
+						saveToStorage={props.saveToStorage}
 					/>
 				)}
 			</div>

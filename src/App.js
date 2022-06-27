@@ -7,28 +7,78 @@ import NewLog from './pages/newlog';
 import Log from './pages/log';
 import Homepage from './pages/home';
 import Header from './components/header';
-import Settings from './pages/settings';
 import UserAuthentication from './pages/userAuth';
+import { useEffect } from 'react';
 
 function App() {
 	// Loads all of the userdata from local storage so that I can use it. Probably not needed if you have a proper backend and could just pull down the specific users data.
-	let emailList = JSON.parse(localStorage.getItem('EMAILLIST'));
-	let usernameList = JSON.parse(localStorage.getItem('USERNAMELIST'));
-	let users = JSON.parse(localStorage.getItem('USERS'));
+	const [users, setUsers] = useState([]);
+	const [emailList, setEmailList] = useState([]);
+	const [usernameList, setUsernameList] = useState([]);
 
 	const [userAuthed, setUserAuthed] = useState(false);
-	const [currentUserData, setCurrentUserData] = useState();
-	const [currentUserId, setCurrentUserId] = useState(); //Keeps record of the users Id, which is the index in the array
+	const [currentUserData, setCurrentUserData] = useState({});
+	const [currentUserId, setCurrentUserId] = useState(0);
 
-	const saveToLocalStorage = () => {
+	const loadFromStorage = () => {
+		const emaildata = localStorage.getItem('EMAILLIST');
+		if (emaildata) {
+			setEmailList(JSON.parse(emaildata));
+		} else {
+			setEmailList([]);
+		}
+
+		const namedata = localStorage.getItem('USERNAMELIST');
+		if (namedata) {
+			setUsernameList(JSON.parse(namedata));
+		} else {
+			setUsernameList([]);
+		}
+
+		const users = localStorage.getItem('USERS');
+		if (users) {
+			setUsers(JSON.parse(users));
+		} else {
+			setUsers([]);
+		}
+
+		const auth = localStorage.getItem('USER_AUTH');
+		if (auth) {
+			setUserAuthed(JSON.parse(auth));
+		} else {
+			setUserAuthed(false);
+		}
+
+		const currentuser = localStorage.getItem('USER_DATA');
+		if (currentuser) {
+			setCurrentUserData(JSON.parse(currentuser));
+		} else {
+			setCurrentUserData({});
+		}
+
+		const id = localStorage.getItem('USER_ID');
+		if (id) {
+			setCurrentUserId(JSON.parse(id));
+		} else {
+			setCurrentUserId(0);
+		}
+	};
+
+	const saveToStorage = () => {
+		//Necessary to use local storage
 		localStorage.setItem('USERS', JSON.stringify(users));
 		localStorage.setItem('EMAILLIST', JSON.stringify(emailList));
 		localStorage.setItem('USERNAMELIST', JSON.stringify(usernameList));
-		// 	localStorage.setItem('USER_AUTH', JSON.stringify(userAuthed));
-		// 	localStorage.setItem('USER_DATA', JSON.stringify(currentUserData));
-		// 	localStorage.setItem('USER_ID', JSON.stringify(currentUserId));
-		// 	localStorage.setItem('USERS', JSON.stringify(users));
+
+		//Actual properties the website needs
+		localStorage.setItem('USER_AUTH', JSON.stringify(userAuthed));
+		localStorage.setItem('USER_ID', JSON.stringify(currentUserId));
+		localStorage.setItem('USER_DATA', JSON.stringify(currentUserData));
 	};
+
+	useEffect(() => {
+		loadFromStorage();
+	}, []);
 
 	const updateUserData = () => {
 		users.splice(currentUserId, 1, currentUserData);
@@ -41,6 +91,8 @@ function App() {
 				setUserAuthed={setUserAuthed}
 				setCurrentUserData={setCurrentUserData}
 				setCurrentUserId={setCurrentUserId}
+				currentUserData={currentUserData}
+				saveToStorage={saveToStorage}
 			/>
 			<Routes>
 				<Route index element={<Homepage />} />
@@ -51,7 +103,12 @@ function App() {
 							setUserAuthed={setUserAuthed}
 							setCurrentUserData={setCurrentUserData}
 							setCurrentUserId={setCurrentUserId}
-							saveToLocalStorage={saveToLocalStorage}
+							users={users}
+							emailList={emailList}
+							setUsers={setUsers}
+							setUsernameList={setUsernameList}
+							setEmailList={setEmailList}
+							usernameList={usernameList}
 						/>
 					}
 				/>
@@ -76,15 +133,6 @@ function App() {
 							currentUserData={currentUserData}
 							setCurrentUserData={setCurrentUserData}
 							updateUserData={updateUserData}
-						/>
-					}
-				/>
-				<Route
-					path="settings"
-					element={
-						<Settings
-							userAuthed={userAuthed}
-							currentUserData={currentUserData}
 						/>
 					}
 				/>

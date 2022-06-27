@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { emailList, usernameList, users } from '../data';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup(props) {
+	const navigate = useNavigate();
 	const [input, setInput] = useState();
 	const [errorMessage, setErrorMessage] = useState();
 
@@ -11,9 +12,10 @@ export default function Signup(props) {
 			[e.currentTarget.name]: e.currentTarget.value,
 		});
 
-	const handleSignup = () => {
-		if (!emailList.includes(input.email)) {
-			if (!usernameList.includes(input.username)) {
+	const handleSignup = (e) => {
+		e.preventDefault();
+		if (!props.emailList.includes(input.email)) {
+			if (!props.usernameList.includes(input.username)) {
 				if (input.password === input.passwordCheck) {
 					let newUser = {
 						email: input.email,
@@ -23,10 +25,14 @@ export default function Signup(props) {
 						currentId: 0,
 						logs: [],
 					};
-					users.push(newUser);
-					emailList.push(newUser.email);
-					usernameList.push(newUser.username);
-					props.saveToLocalStorage();
+					let users = props.users;
+					props.setUsers(props.users.concat(newUser));
+					props.setEmailList(props.emailList.concat(input.email));
+					props.setUsernameList(props.usernameList.concat(input.username));
+					props.setUserAuthed(true);
+					props.setCurrentUserData(newUser);
+					props.setCurrentUserId(users.length);
+					navigate('/');
 				} else {
 					setErrorMessage('Passwords do not match');
 				}
@@ -36,7 +42,6 @@ export default function Signup(props) {
 		} else {
 			setErrorMessage('This account already exists');
 		}
-		//Create a new user
 		//add new user to userlist
 	};
 

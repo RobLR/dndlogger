@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { users } from '../data';
+// import { users } from '../data';
 
 export default function NewLogForm(props) {
 	const navigate = useNavigate();

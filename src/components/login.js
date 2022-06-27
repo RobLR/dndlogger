@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { emailList, users } from '../data';
+// import { emailList, users } from '../data';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login(props) {
@@ -15,9 +15,11 @@ export default function Login(props) {
 
 	const handleLogin = (e) => {
 		e.preventDefault();
-		if (emailList.includes(input.email)) {
-			let user = users.find((user) => user.email === input.email);
-			let userIndex = users.indexOf(user);
+		if (!props.emailList) {
+			setErrorMessage('Could not find user');
+		} else if (props.emailList.includes(input.email)) {
+			let user = props.users.find((user) => user.email === input.email);
+			let userIndex = props.users.indexOf(user);
 			if (user.password === input.password) {
 				props.setCurrentUserData(user);
 				props.setUserAuthed(true);
