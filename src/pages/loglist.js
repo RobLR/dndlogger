@@ -4,6 +4,7 @@ function LogList(props) {
 	let logs = props.currentUserData.logs;
 	let [searchParams, setSearchParams] = useSearchParams();
 
+	// Only renders page if user is logged in, if they were to navigate here without being authed, this wouldn't show
 	if (props.userAuthed === true) {
 		return (
 			<main>
@@ -22,7 +23,7 @@ function LogList(props) {
 							}
 						}}
 					/>
-
+					{/* Filters all the users logs based on search parameters and then maps those that pass to the page */}
 					{logs
 						.filter((log) => {
 							let filter = searchParams.get('filter');

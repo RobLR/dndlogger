@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import Footer from './components/footer';
 
 function App() {
-	// Loads all of the userdata from local storage so that I can use it. Probably not needed if you have a proper backend and could just pull down the specific users data.
+	// Sets states that I need accross all of the website
 	const [users, setUsers] = useState([]);
 	const [emailList, setEmailList] = useState([]);
 	const [usernameList, setUsernameList] = useState([]);
@@ -20,6 +20,7 @@ function App() {
 	const [currentUserData, setCurrentUserData] = useState({});
 	const [currentUserId, setCurrentUserId] = useState(0);
 
+	// Loads data from local storage (TODO: update website so that only one data needs to be loaded, and everything is created from that)
 	const loadFromStorage = () => {
 		const emaildata = localStorage.getItem('EMAILLIST');
 		if (emaildata) {
@@ -64,22 +65,23 @@ function App() {
 		}
 	};
 
+	// Saves all data to storage
 	const saveToStorage = () => {
-		//Necessary to use local storage
 		localStorage.setItem('USERS', JSON.stringify(users));
 		localStorage.setItem('EMAILLIST', JSON.stringify(emailList));
 		localStorage.setItem('USERNAMELIST', JSON.stringify(usernameList));
 
-		//Actual properties the website needs
 		localStorage.setItem('USER_AUTH', JSON.stringify(userAuthed));
 		localStorage.setItem('USER_ID', JSON.stringify(currentUserId));
 		localStorage.setItem('USER_DATA', JSON.stringify(currentUserData));
 	};
 
+	// Loads from storage on initial render
 	useEffect(() => {
 		loadFromStorage();
 	}, []);
 
+	// Replaces the current users in the overall user list with the updated version. Bad code as it is directly mutating a state
 	const updateUserData = () => {
 		users.splice(currentUserId, 1, currentUserData);
 	};
