@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Homepage() {
 	return (
 		<main>
-			{/* <img
-				className="backgroundImg"
-				src={require('./resized-DNDNotes2.webp')}
-				alt="d&d notes"
-			/> */}
+			<img src={require('./resized-DNDNotes2.webp')} alt="d&d notes" />
 			<h2>Welcome!</h2>
 			<p>
 				This is a simple program aimed at keeping track of D&D sessions. Start

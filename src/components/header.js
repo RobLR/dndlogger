@@ -5,8 +5,8 @@ export default function Header(props) {
 	const navigate = useNavigate();
 	const handleLogOut = () => {
 		props.setUserAuthed(false);
-		props.setCurrentUserData();
-		props.setCurrentUserId();
+		props.setCurrentUserData({});
+		props.setCurrentUserId(0);
 		navigate('/');
 	};
 
