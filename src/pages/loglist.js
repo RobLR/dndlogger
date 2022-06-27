@@ -10,7 +10,7 @@ function LogList(props) {
 				<h2>Log List</h2>
 				<p>Here you can find a list of all your saved logs</p>
 
-				<div>
+				<div className="logList">
 					<input
 						value={searchParams.get('filter') || ''}
 						onChange={(event) => {
@@ -22,8 +22,6 @@ function LogList(props) {
 							}
 						}}
 					/>
-					{/* TODO */}
-					{/* <label for="timePeriod">Time period: </label> <!--Create a dropdown/range slider for dates--> */}
 
 					{logs
 						.filter((log) => {

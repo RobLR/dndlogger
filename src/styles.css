@@ -177,6 +177,26 @@ body {
 	background-color: rgba(128, 128, 128, 0.573);
 }
 
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-inline-size: 60rem;
+	margin-inline: auto;
+	padding-top: 1em;
+}
+
+.footer {
+	background-color: black;
+	color: red;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 0.5em;
+}
+
 /* Mobile Navigation */
 @media (max-width: 35em) {
 	.header {
@@ -204,6 +224,19 @@ body {
 	color: red;
 }
 
+.start {
+	background-color: black;
+	text-decoration: none;
+	color: red;
+	border-radius: 5px;
+	padding: 0.5em;
+	transition: 0.5s;
+}
+
+.start:hover {
+	background-color: rgb(69, 69, 69);
+}
+
 .modalDiv {
 	width: 100vw;
 	height: 100vh;
@@ -214,9 +247,78 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
 .modal {
-	width: 350px;
-	height: 200px;
 	background-color: white;
 	border-radius: 5px;
 }
+
+.loginNav {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.loginsignup {
+	width: 50%;
+	text-align: center;
+}
+
+.loginsignup:hover {
+	cursor: pointer;
+}
+
+.inactive {
+	background-color: gray;
+}
+
+.authForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.errorMessage {
+	color: red;
+}
+
+.logList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-block-start: 1em;
+}
+
+.return {
+	position: absolute;
+	left: 1em;
+}
+
+.logHeading {
+	margin-top: 1.5em;
+}
+
+.log {
+	display: flex;
+	align-items: flex-start;
+}
+
+.line {
+	color: red;
+	background-color: red;
+	height: 2px;
+	width: 100%;
+}
+
+/* .backgroundImg {
+	position: absolute;
+	z-index: -1;
+	box-shadow: 0px 8px black inset;
+} */

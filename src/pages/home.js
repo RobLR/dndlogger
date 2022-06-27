@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom';
 export default function Homepage() {
 	return (
 		<main>
-			<img src="" alt="" />
+			{/* <img
+				className="backgroundImg"
+				src={require('./resized-DNDNotes2.webp')}
+				alt="d&d notes"
+			/> */}
 			<h2>Welcome!</h2>
-			<p>This is a simple program aimed at keeping track of D&D sessions</p>
-			<Link to="/newlog">Get Started!</Link>
+			<p>
+				This is a simple program aimed at keeping track of D&D sessions. Start
+				by creating a new account and then making some logs.
+			</p>
+			<Link className="start" to="/newlog">
+				Get Started!
+			</Link>
 		</main>
 	);
 }

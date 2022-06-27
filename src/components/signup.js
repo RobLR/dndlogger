@@ -46,12 +46,12 @@ export default function Signup(props) {
 	};
 
 	return (
-		<div>
+		<div className="authForm">
 			<h3>Please enter your details</h3>
-			{errorMessage && <p>{errorMessage}</p>}
+			{errorMessage && <p className="errorMessage">{errorMessage}</p>}
 			<form onSubmit={handleSignup}>
 				<label>
-					Email address:{' '}
+					Email address <br />
 					<input
 						required
 						type="email"
@@ -59,8 +59,9 @@ export default function Signup(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<label>
-					Username:{' '}
+					Username <br />
 					<input
 						required
 						type="text"
@@ -68,8 +69,9 @@ export default function Signup(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<label>
-					Choose a password:{' '}
+					Choose a password <br />
 					<input
 						required
 						type="password"
@@ -77,8 +79,9 @@ export default function Signup(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<label>
-					Repeat password:{' '}
+					Repeat password <br />
 					<input
 						required
 						type="password"
@@ -86,6 +89,7 @@ export default function Signup(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<input type="submit" value="Sign Up!" />
 			</form>
 		</div>

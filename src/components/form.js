@@ -7,8 +7,6 @@ export default function NewLogForm(props) {
 	const [input, setInput] = useState({
 		sessionId: props.currentUserData.currentId,
 	});
-	const [valid, setValid] = useState(false);
-	const [saved, setSaved] = useState(false);
 	let dummyUserData = { ...props.currentUserData };
 
 	const handleInputChange = (e) =>
@@ -17,32 +15,17 @@ export default function NewLogForm(props) {
 			[e.currentTarget.name]: e.currentTarget.value,
 		});
 
-	// TODO
-	const checkValidation = () => {
-		return true;
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setSaved(true);
-		setValid(checkValidation()); //Need to change, currently making you have to click save twice because it takes time for state to update.
-		if (valid) {
-			dummyUserData.logs.push(input);
-			dummyUserData.currentId += 1;
-			props.setCurrentUserData(dummyUserData);
-			props.updateUserData();
-			navigate(`/${input.sessionId}`);
-		}
+		dummyUserData.logs.push(input);
+		dummyUserData.currentId += 1;
+		props.setCurrentUserData(dummyUserData);
+		props.updateUserData();
+		navigate(`/${input.sessionId}`);
 	};
 
 	return (
 		<form action="" onSubmit={handleSubmit}>
-			{saved && !valid && (
-				<span>
-					This name and date combination already exists. Please enter a
-					different combination.
-				</span>
-			)}
 			<label>
 				Session Name:
 				<input

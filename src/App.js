@@ -8,6 +8,7 @@ import Homepage from './pages/home';
 import Header from './components/header';
 import UserAuthentication from './pages/userAuth';
 import { useEffect } from 'react';
+import Footer from './components/footer';
 
 function App() {
 	// Loads all of the userdata from local storage so that I can use it. Probably not needed if you have a proper backend and could just pull down the specific users data.
@@ -145,6 +146,7 @@ function App() {
 				/>
 			</Routes>
 			<Outlet />
+			<Footer />
 		</div>
 	);
 }

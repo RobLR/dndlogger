@@ -34,12 +34,12 @@ export default function Login(props) {
 	};
 
 	return (
-		<main>
+		<div className="authForm">
 			<h3>Please log in</h3>
-			{errorMessage && <p>{errorMessage}</p>}
+			{errorMessage && <p className="errorMessage">{errorMessage}</p>}
 			<form onSubmit={handleLogin}>
 				<label>
-					Email:
+					Email <br />
 					<input
 						required
 						type="email"
@@ -47,8 +47,9 @@ export default function Login(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<label>
-					Password:
+					Password <br />
 					<input
 						required
 						type="password"
@@ -56,8 +57,9 @@ export default function Login(props) {
 						onChange={handleInputChange}
 					/>
 				</label>
+				<br />
 				<input type="submit" value="Log In" />
 			</form>
-		</main>
+		</div>
 	);
 }

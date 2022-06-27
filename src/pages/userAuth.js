@@ -12,13 +12,29 @@ export default function UserAuthentication(props) {
 	return (
 		<div className="modalDiv">
 			<div className="modal">
-				<div>
-					<button id="login" onClick={switchMode}>
+				<div className="loginNav">
+					<span
+						className={
+							loginOrSignup === 'login'
+								? 'loginsignup '
+								: 'loginsignup inactive'
+						}
+						id="login"
+						onClick={switchMode}
+					>
 						Log In
-					</button>
-					<button id="signup" onClick={switchMode}>
+					</span>
+					<span
+						className={
+							loginOrSignup === 'signup'
+								? 'loginsignup '
+								: 'loginsignup inactive'
+						}
+						id="signup"
+						onClick={switchMode}
+					>
 						Sign Up
-					</button>
+					</span>
 				</div>
 				{loginOrSignup === 'login' && (
 					<Login

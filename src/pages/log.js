@@ -6,11 +6,14 @@ export default function Log(props) {
 	let currentLog = props.currentUserData.logs[logId];
 
 	return (
-		<main>
-			<Link to="/loglist">Return to list</Link>
-			<h2>
+		<main className="log">
+			<Link className="return" to="/loglist">
+				Return to list
+			</Link>
+			<h2 className="logHeading">
 				{currentLog.sessionName} ({currentLog.sessionDate})
 			</h2>
+			<hr className="line" />
 			<h3>Start Location: {currentLog.startLoc}</h3>
 			<h3>End Location: {currentLog.endLoc}</h3>
 			<p>{currentLog.sessionNotes}</p>
